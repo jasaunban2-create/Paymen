@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝗣𝗔𝗬𝗠𝗘𝗡𝗧 𝗞𝗬𝗬𝗪𝗘</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #121212;
+            color: #f0f0f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background-color: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            padding: 25px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            border: 3px solid #444;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .welcome-section {
+            padding: 20px;
+            text-align: center;
+            background-color: #252525;
+            border-bottom: 1px solid #333;
+        }
+
+        .welcome-text {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 12px 15px;
+            background-color: #333;
+            border: 1px solid #444;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .name-input:focus {
+            outline: none;
+            border-color: #6c5ce7;
+        }
+
+        .payment-section {
+            padding: 20px;
+        }
+
+        .payment-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ddd;
+            font-weight: 500;
+        }
+
+        .payment-method {
+            background-color: #252525;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-color: #6c5ce7;
+        }
+
+        .method-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .method-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        .method-name {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .method-details {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .method-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .method-label {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .method-value {
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .copy-btn {
+            background-color: #6c5ce7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .copy-btn:hover {
+            background-color: #5b4bc4;
+        }
+
+        .qris-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .qris-image {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #444;
+        }
+
+        .telegram-section {
+            padding: 20px;
+            text-align: center;
+            background-color: #252525;
+            border-top: 1px solid #333;
+        }
+
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #0088cc;
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .telegram-btn:hover {
+            background-color: #0077b5;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .notification.show {
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .payment-section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="https://files.catbox.moe/utqz8b.jpg" alt="Logo">
+            </div>
+            <h1 class="title">Payment Gateway</h1>
+            <p class="subtitle">Lakukan pembayaran dengan mudah</p>
+        </div>
+        
+        <div class="welcome-section">
+            <p class="welcome-text">Selamat datang,</p>
+            <input type="text" class="name-input" id="nameInput" placeholder="Masukkan nama Anda" value="Pelanggan">
+        </div>
+        
+        <div class="payment-section">
+            <h2 class="payment-title">Metode Pembayaran</h2>
+            
+            <div class="payment-method">
+                <div class="method-header">
+                    <div class="method-icon" style="color: #00a650;">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="method-name">GOPAY</div>
+                </div>
+                <div class="method-details">
+                    <div class="method-row">
+                        <span class="method-label">Nomor:</span>
+                        <span class="method-value">081574757113</span>
+                    </div>
+                    <div class="method-row">
+                        <span class="method-label">Atas Nama:</span>
+                        <span class="method-value" id="gopayName">FAHRI</span>
+                    </div>
+                    <div class="method-row">
+                        <span class="method-label"></span>
+                        <button class="copy-btn" data-text="081574757113">Salin Nomor</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-method">
+                <div class="method-header">
+                    <div class="method-icon" style="color: #ffd700;">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="method-name">DANA</div>
+                </div>
+                <div class="method-details">
+                    <div class="method-row">
+                        <span class="method-label">Nomor:</span>
+                        <span class="method-value">087874744351</span>
+                    </div>
+                    <div class="method-row">
+                        <span class="method-label">Atas Nama:</span>
+                        <span class="method-value">INA W*****</span>
+                    </div>
+                    <div class="method-row">
+                        <span class="method-label"></span>
+                        <button class="copy-btn" data-text="087874744351">Salin Nomor</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-method">
+                <div class="method-header">
+                    <div class="method-icon" style="color: #6c5ce7;">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div class="method-name">QRIS</div>
+                </div>
+                <div class="method-details">
+                    <div class="qris-container">
+                        <img src="https://files.catbox.moe/l82nhi.jpg" alt="QRIS" class="qris-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="telegram-section">
+            <a href="https://t.me/kyyweeeee" class="telegram-btn" target="_blank">
+                <i class="fab fa-telegram"></i>
+                Join Channel Telegram Kami
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>&copy; 2023 Payment Gateway. All rights reserved.</p>
+    </div>
+    
+    <div class="notification" id="notification">Teks berhasil disalin!</div>
+
+    <script>
+        // Fungsi untuk mengubah nama di atas metode pembayaran
+        const nameInput = document.getElementById('nameInput');
+        const gopayName = document.getElementById('gopayName');
+        
+        nameInput.addEventListener('input', function() {
+            if (this.value.trim() !== '') {
+                gopayName.textContent = this.value;
+            } else {
+                gopayName.textContent = 'FAHRI';
+            }
+        });
+        
+        // Fungsi untuk menyalin teks
+        const copyButtons = document.querySelectorAll('.copy-btn');
+        const notification = document.getElementById('notification');
+        
+        copyButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const textToCopy = this.getAttribute('data-text');
+                
+                // Buat elemen textarea sementara untuk menyalin teks
+                const textarea = document.createElement('textarea');
+                textarea.value = textToCopy;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                
+                // Tampilkan notifikasi
+                notification.textContent = `Berhasil disalin: ${textToCopy}`;
+                notification.classList.add('show');
+                
+                // Sembunyikan notifikasi setelah 2 detik
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
